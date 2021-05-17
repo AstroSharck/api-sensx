@@ -8,15 +8,12 @@ $key = $con->real_escape_string($_GET['key']);
 //$arr = array('id' => 1, 'authorization' => NULL, 'isAdmin' => "no");
 
 
-if(!$action)
-{
+if(!$action) {
 	$arr = array('status' => "fail", 'message' => "invalid query");
 	echo json_encode($arr);
-}
-else
-{
-	if($action == "access_users")
-	{
+} else {
+	
+	if($action == "access_users") {
 		
 		$sql = "SELECT 	*  FROM sens_launcher";
 		$result = $con->query($sql);
@@ -34,27 +31,20 @@ else
 			$arr = array('status' => "fail", 'content' => "error_request");
 			echo json_encode($arr);
 		}
-	}
-
-	elseif($action == "ban")
-	{
+		
+	} elseif($action == "ban") {
 		$query = $con->query("SELECT * FROM sens_ban WHERE hwid = '$hwid'");
 		$cnt = $query->num_rows;
 		
-		if($cnt > 0)
-		{
+		if($cnt > 0) {
 			$arr = array('status' => "success", 'ban' => "true");
 			echo json_encode($arr);
-		}
-		else
-		{
+		} else {
 			$arr = array('status' => "success", 'ban' => "false");
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "loadELB")
-	{
+	} elseif($action == "loadELB") {
 		$sql = "SELECT 	*  FROM elb_menu";
 		$result = $con->query($sql);
 
@@ -73,9 +63,7 @@ else
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "loadSlay")
-	{
+	} elseif($action == "loadSlay") {
 		$sql = "SELECT 	*  FROM slay_menu";
 		$result = $con->query($sql);
 
@@ -93,9 +81,7 @@ else
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "loadJoker")
-	{
+	} elseif($action == "loadJoker") {
 		$sql = "SELECT 	*  FROM joker_menu";
 		$result = $con->query($sql);
 
@@ -113,9 +99,7 @@ else
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "loadNaruto")
-	{
+	} elseif($action == "loadNaruto") {
 		$sql = "SELECT 	*  FROM naruto_menu";
 		$result = $con->query($sql);
 
@@ -133,9 +117,7 @@ else
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "loadCrespo")
-	{
+	} elseif($action == "loadCrespo") {
 		$sql = "SELECT 	*  FROM crespo_menu";
 		$result = $con->query($sql);
 
@@ -153,9 +135,7 @@ else
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "loadIvritex")
-	{
+	} elseif($action == "loadIvritex") {
 		$sql = "SELECT 	*  FROM ivritex_menu";
 		$result = $con->query($sql);
 
@@ -165,7 +145,7 @@ else
 				  //echo $row["acces_admin"];
 				$arr = array('responce' => "sucess", 'name' => $row["name"], 'status' => $row["status"], 'version' => $row["version"], 'lastUpdated' => $row["lastUpdated"], 'openingKey' => $row["openingKey"], 'feature1' => $row["feature1"], 'feature2' => $row["feature2"], 'feature3' => $row["feature3"], 'changelogs' => $row["changelogs"], 'dev' => $row["dev"], 'discord' => $row["discord"], 'youtube' => $row["youtube"]);
 				echo json_encode($arr);
-		  }
+		    }
 		  
 		} else {
 			
@@ -173,9 +153,7 @@ else
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "loadLuna")
-	{
+	} elseif($action == "loadLuna") {
 		$sql = "SELECT 	*  FROM luna_menu";
 		$result = $con->query($sql);
 
@@ -193,9 +171,7 @@ else
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "loadFlexy")
-	{
+	} elseif($action == "loadFlexy") {
 		$sql = "SELECT 	*  FROM flexy_menu";
 		$result = $con->query($sql);
 
@@ -213,28 +189,19 @@ else
 			echo json_encode($arr);
 		}
 		
-	}
-	elseif($action == "login-elb")
-	{
+	} elseif($action == "login-elb") {
 		$query = $con->query("SELECT key_code FROM elb_menu WHERE key_code = '$key'");
 		$cnt = $query->num_rows;
 		
-		if($cnt > 0)
-		{
+		if($cnt > 0){
 			$arr = array('status' => "success", 'content' => "valid_key");
 			echo json_encode($arr);
-		}
-		else
-		{
+		} else {
 			$arr = array('status' => "fail", 'content' => "error_key");
 			echo json_encode($arr);
 		}
 		
-	}
-
-
-	else
-	{
+	} else {
 		$arr = array('status' => "fail", 'message' => "invalid query");
 		echo json_encode($arr);
 	}
