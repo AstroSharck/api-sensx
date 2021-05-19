@@ -53,7 +53,7 @@ if(!$action) {
   			while($row = $result->fetch_assoc()) {
 				  //echo $row["acces_admin"];
 				$arr = array('responce' => "sucess", 'name' => $row["name"], 'status' => $row["status"], 'version' => $row["version"], 'KeyLink' => $row["getkeylink"],'lastUpdated' => $row["lastUpdated"], 'openingKey' => $row["openingKey"], 'feature1' => $row["feature1"], 'feature2' => $row["feature2"], 'feature3' => $row["feature3"], 'changelogs' => $row["changelogs"], 'dev' => $row["dev"], 'discord' => $row["discord"], 'youtube' => $row["youtube"]);
-				echo htmlspecialchars(json_encode($arr));
+				echo json_encode($arr);
 				
 		  }
 		  
