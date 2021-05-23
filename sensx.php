@@ -189,8 +189,83 @@ if(!$action) {
 			echo json_encode($arr);
 		}
 		
-	} elseif($action == "login-elb") {
+	} 
+	
+	/* Login */
+	elseif($action == "login-elb") {
 		$query = $con->query("SELECT key_code FROM elb_menu WHERE key_code = '$key'");
+		$cnt = $query->num_rows;
+		
+		if($cnt > 0){
+			$arr = array('status' => "success", 'content' => "valid_key");
+			echo json_encode($arr);
+		} else {
+			$arr = array('status' => "fail", 'content' => "error_key");
+			echo json_encode($arr);
+		}
+		
+	} elseif($action == "login-slay") {
+		$query = $con->query("SELECT key_code FROM slay_menu WHERE key_code = '$key'");
+		$cnt = $query->num_rows;
+		
+		if($cnt > 0){
+			$arr = array('status' => "success", 'content' => "valid_key");
+			echo json_encode($arr);
+		} else {
+			$arr = array('status' => "fail", 'content' => "error_key");
+			echo json_encode($arr);
+		}
+		
+	} elseif($action == "login-joker") {
+		$query = $con->query("SELECT key_code FROM joker_menu WHERE key_code = '$key'");
+		$cnt = $query->num_rows;
+		
+		if($cnt > 0){
+			$arr = array('status' => "success", 'content' => "valid_key");
+			echo json_encode($arr);
+		} else {
+			$arr = array('status' => "fail", 'content' => "error_key");
+			echo json_encode($arr);
+		}
+		
+	} elseif($action == "login-naruto") {
+		$query = $con->query("SELECT key_code FROM naruto_menu WHERE key_code = '$key'");
+		$cnt = $query->num_rows;
+		
+		if($cnt > 0){
+			$arr = array('status' => "success", 'content' => "valid_key");
+			echo json_encode($arr);
+		} else {
+			$arr = array('status' => "fail", 'content' => "error_key");
+			echo json_encode($arr);
+		}
+		
+	} elseif($action == "login-ivritex") {
+		$query = $con->query("SELECT key_code FROM ivritex_menu WHERE key_code = '$key'");
+		$cnt = $query->num_rows;
+		
+		if($cnt > 0){
+			$arr = array('status' => "success", 'content' => "valid_key");
+			echo json_encode($arr);
+		} else {
+			$arr = array('status' => "fail", 'content' => "error_key");
+			echo json_encode($arr);
+		}
+		
+	} elseif($action == "login-crespo") {
+		$query = $con->query("SELECT key_code FROM crespo_menu WHERE key_code = '$key'");
+		$cnt = $query->num_rows;
+		
+		if($cnt > 0){
+			$arr = array('status' => "success", 'content' => "valid_key");
+			echo json_encode($arr);
+		} else {
+			$arr = array('status' => "fail", 'content' => "error_key");
+			echo json_encode($arr);
+		}
+		
+	} elseif($action == "login-flexy") {
+		$query = $con->query("SELECT key_code FROM flexy_menu WHERE key_code = '$key'");
 		$cnt = $query->num_rows;
 		
 		if($cnt > 0){
@@ -204,7 +279,7 @@ if(!$action) {
 	} else {
 		$arr = array('status' => "fail", 'message' => "invalid query");
 		echo json_encode($arr);
-	}
+	} 
 }
 
 
