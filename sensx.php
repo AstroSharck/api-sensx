@@ -52,7 +52,7 @@ if(!$action) {
   			// output data of each row
   			while($row = $result->fetch_assoc()) {
 				  //echo $row["acces_admin"];
-				$arr = array('responce' => "sucess", 'name' => $row["name"], 'status' => $row["status"], 'version' => $row["version"], 'downloadDLL' => $row["downloadDLL"], 'downloadYTD' => $row["downloadYTD"], 'keylink' => $row["getkeylink"],'lastUpdated' => $row["lastUpdated"], 'openingKey' => $row["openingKey"], 'feature1' => $row["feature1"], 'feature2' => $row["feature2"], 'feature3' => $row["feature3"], 'changelogs' => $row["changelogs"], 'dev' => $row["dev"], 'discord' => $row["discord"], 'youtube' => $row["youtube"]);
+				$arr = array('responce' => "sucess", 'name' => $row["name"], 'status' => $row["status"], 'version' => $row["version"], 'downloadDLL' => $row["downloadDLL"], 'downloadYTD' => $row["downloadYTD"], 'keylink' => $row["getkeylink"],'lastUpdated' => $row["lastUpdated"], 'openingKey' => $row["openingKey"], 'feature1' => $row["feature1"], 'feature2' => $row["feature2"], 'feature3' => $row["feature3"], 'changelogs' => $row["changelogs"], 'dev' => $row["dev"], 'discord' => $row["discord"], 'youtube' => $row["youtube"], 'locked' => $row["locked"]);
 				echo json_encode($arr);
 				
 		  }
